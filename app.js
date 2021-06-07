@@ -42,6 +42,11 @@ function isGameOver() {
       paper.classList.add('disabled');
       scissors.classList.add('disabled');
       document.querySelector('#btn-group').appendChild(reset);
+      if (playerScore > computerScore) {
+         display.innerText = "YOU WIN!!";
+      } else {
+         display.innerText = "YOU LOST :(";
+      }
    }
 }
 
@@ -49,6 +54,7 @@ function resetGame() {
    playerScore = 0;
    computerScore = 0;
    updateScore();
+   display.innerText = "";
    rock.classList.remove('disabled');
    paper.classList.remove('disabled');
    scissors.classList.remove('disabled');
