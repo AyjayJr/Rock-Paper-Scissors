@@ -3,6 +3,7 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const choices = ['Rock', 'Paper', 'Scissors'];
 const reset = document.createElement('button');
+const display = document.querySelector('p');
 reset.innerText = 'reset';
 
 let playerScore = 0;
@@ -20,18 +21,17 @@ reset.addEventListener('click', () => (resetGame()));
 function playRound(playerSelection) {
    computerSelection = computerPlay();
    if (playerSelection === computerSelection) {
-      console.log(`Draw!! ${playerScore} to ${computerScore}`);
-      updateScore();
+      display.innerText = `Draw!! ${playerSelection} to ${computerSelection}!`;
    } else if (playerSelection == 'Rock' && computerSelection == 'Scissors' ||
               playerSelection == 'Paper' && computerSelection == 'Rock' ||
               playerSelection == 'Scissors' && computerSelection == 'Paper') {
       ++playerScore;
-      console.log(`Player Wins!! ${playerScore} to ${computerScore}`);
       updateScore();
+      display.innerText = `Player Wins!! ${playerSelection} beats ${computerSelection}!`;
    } else {
       ++computerScore;
-      console.log(`Computer Wins!! ${playerScore} to ${computerScore}`);
       updateScore();
+      display.innerText = `Computer Wins!! ${computerSelection} beats ${playerSelection}!`;
    }
    isGameOver();
 }
