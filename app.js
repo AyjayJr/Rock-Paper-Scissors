@@ -3,7 +3,7 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const choices = ['Rock', 'Paper', 'Scissors'];
 const reset = document.createElement('button');
-const display = document.querySelector('p');
+const display = document.querySelector('#display');
 reset.innerText = 'reset';
 
 let playerScore = 0;
@@ -41,7 +41,7 @@ function isGameOver() {
       rock.classList.add('disabled');
       paper.classList.add('disabled');
       scissors.classList.add('disabled');
-      document.querySelector('#btn-group').appendChild(reset);
+      document.querySelector('.card-footer').appendChild(reset);
       if (playerScore > computerScore) {
          display.innerText = "YOU WIN!!";
       } else {
@@ -58,7 +58,7 @@ function resetGame() {
    rock.classList.remove('disabled');
    paper.classList.remove('disabled');
    scissors.classList.remove('disabled');
-   document.querySelector('#btn-group').removeChild(reset);
+   document.querySelector('.card-footer').removeChild(reset);
 }
 
 function updateScore() {

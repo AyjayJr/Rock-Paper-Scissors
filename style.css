@@ -1,8 +1,3 @@
 .disabled {
    pointer-events: none;
 }
-
-main {
-   margin: 40vh 40vw;
-   text-align: center;
-}
